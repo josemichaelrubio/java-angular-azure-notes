@@ -1,4 +1,4 @@
-### Installations:
+### Software Installations:
 - Java 8
 - Git
 - Gradle
