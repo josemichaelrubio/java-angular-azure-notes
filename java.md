@@ -54,12 +54,17 @@ From here we can add packages and imports, expanding the application into a set 
 Although Java accommodates several paradigms, OOP is the foundation for most applications. In OOP, a program is organized into objects encapsulating related fields (representing its _state_) and methods (usually to control that state or perform related functions). When defining objects, Java reserves the keyword _class_ (not to be confused with the _.class_ file extension) which serves as their blueprint. An object in Java represents an instance in memory of a class, and also every class implicitly inherits from the _Object_ superclass which provides useful convenience methods such as _equals()_ and _toString()_. Java popularized several 'Pillars' of OOP design theory. While the numbers vary between OOP languages, Java focuses on four:
 
 - **Abstraction** By simplifying objects to a set of useful features, we hide irrelevant details, reduce complexity, and increase efficiency. Abstraction is important at all levels of software and computer engineering, but essential to designing useful objects. Complicated real-world objects are reduced to simple representations.
+    - abstract class: used for creating an incomplete model, can contain instance variables, subclass can only inherit from one 
+    - interface: used for assuring particular behavior, variables are implicitly public, final, and static (constants)
 
 - **Encapsulation** Objects should group together related variables and functions and be in complete control over them. So the state of an object should only change, if ever, through the object itself. Also known as data hiding, because the object has sole responsibility for its fields, and no outside object or function should interfere.
 
 - **Inheritance** Code reuse is an important principle of programming (DRY - Don't Repeat Yourself), and new classes can reuse code from existing ones. This establishes a superclass-subclass (or parent-child) relationship where the derived classes inherit (and sometimes change) fields and methods from its parent.
 
 - **Polymorphism** With inheritance, an object of a derived class can be referenced as instances of its parent class. This provides flexibility when invoking inherited methods with varying implementations in derived classes.
+    - method overriding (dynamic or runtime polymorphism)
+    - method overloading (compile time or static polymorphism)
+    - covariant types (referring to a subclass as an instance of it's superclass)
 
 ## Variables
 
@@ -155,3 +160,24 @@ int 2DArrayTwo[][];
 int []2DArrayThree[];
 ```
 
+### Varargs
+
+Varargs, or variable arguments, is a means of passing in a variable amount of parameters into a method. Varargs is essentially syntactic sugar for creating an array as a parameter, so that no array needs to be initialized and populated.
+ 
+```java
+public int variableAdd(int... nums){
+    int sum = 0;
+    for(int i: nums){
+        sum+=i;
+    }
+    return sum;
+}
+```
+
+```java
+public static void main(String... args){
+    // do something
+}
+```
+
+Only one vararg can be declared in a method signature, and it must be the last parameter declared.
