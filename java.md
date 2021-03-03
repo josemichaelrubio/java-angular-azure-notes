@@ -159,6 +159,39 @@ int[][] 2DArrayOne;
 int 2DArrayTwo[][];
 int []2DArrayThree[];
 ```
+### Iteration
+
+Java for loops can iterate through arrays like most other languages:
+
+```java
+// One-Dimensional Arrays
+for (int i = 0; i < arrayOne.length; i++) {
+    System.out.print(arrayOne[i]);
+}
+
+// Two-Dimensional Arrays
+for (int i = 0; i < 2DArrayOne.length; i++) {
+    for (int j  =0; j < 2DArrayOne[i].length; j++) {
+        System.out.print(2DArrayOne[i][j]);
+    }
+}
+
+// Foreach loops
+for (int i : arrayOne) {
+    System.out.print(i);
+}
+```
+
+### Manipulation
+
+The `java.util.Arrays` class provides various methods for manipulating arrays.
+
+```java
+int[] nums = {234, 5346, 3, 64};
+Arrays.sort(nums);
+System.out.println(Arrays.toString(nums));
+```
+
 
 ### Varargs
 
@@ -181,3 +214,89 @@ public static void main(String... args){
 ```
 
 Only one vararg can be declared in a method signature, and it must be the last parameter declared.
+
+
+# Exception Handling
+
+When an something wrong occurs during execution, the current stack frame will throw an exception. If the exception is not handled, or thrown up the stack to be handled elsewhere, the program will crash. Good exception handling helps a program continue execution. Common issues involve stack or heap memory overflow, an array iterating out of bounds, or an interrupted stream or thread.
+
+### Hierarchy
+
+Exception and error objects extend Throwable and are either checked or unchecked.
+
+<img src="https://www.javamex.com/tutorials/exceptions/ExceptionHierarchy.png" alt="exception hierarchy">
+
+Checked exceptions are those which inherit from the Exception class directly. Your compiler is aware of the potential of a checked exception being thrown. Checked exceptions, such as `IOException`, must be handled or thrown before your code will compile successfully. The compiler does not force us to handle unchecked exceptions. Most unchecked exceptions extend RuntimeException, such as `NullPointerException`. Errors are serious issues and should not be handled, such as `StackOverflowError`.
+
+### Throws
+
+The `throws` keyword re-throws an exception up the stack to the method that called the throwing method. If the exception is continually thrown and never handled, the compiler will be satisfied in the case of checked exceptions but any issues will still break the program.
+
+```java
+public void methodThatThrows() throws IOException {
+    // throw (singular) will throw a new exception every time.
+    throw new IOException();
+}
+
+public void methodThatCalls() {
+    methodThatThrows(); // IOException must now be handled here, or methodThatCalls() must use throws as well (this code does not compile)
+}
+```
+
+### Try-Catch
+
+The most basic form of exception handling is the try-catch:
+
+```java
+public void methodThatThrows() throws IOException {
+    try {
+        throw new IOException();
+    } catch (IOException exception) {
+        // Do something with the exception
+        logger.warn("IOException thrown");
+    }
+}
+```
+
+A try block must be followed by at least one catch (or finally) block, but there can be any number of catch blocks for specific (or broad) exceptions. Catch blocks must be ordered from most specific to least specific Exception objects else later catch blocks catching subclasses of exceptions caught in catch blocks above it will become unreachable code.
+
+Multiple exceptions can also be handled in one catch block:
+
+```java
+public void methodThatThrows() throws IOException {
+    try {
+        throw new IOException();
+    } catch (IOException ex1 | ServletException ex2) {
+        // Do something with the exception
+        logger.warn("Exception thrown");
+    }
+}
+```
+
+### Finally
+
+Try blocks can be followed by one finally block, and can either replace the mandatory single catch block or follow one or more catch blocks. They are always guaranteed to execute, even if no exceptions are thrown, and are useful for closing resources that may be left open in memory due to an interruption from a thrown exception.
+
+```java
+public void methodThatThrows() throws IOException {
+    try {
+        throw new IOException();
+    } finally {
+        System.out.println("Will always run");
+    }
+}
+```
+
+### Try-with-resources
+
+Declaring and defining a resource - any object that implements AutoCloseable - within a pair of parenthesis after the try keyword removes the necessity of a finally block to close that resource.
+
+```java
+public void methodThatThrows() throws IOException {
+    try (FileReader fr = new FileReader()) {
+        // read from file
+    } catch (IOException exception) {
+        logger.warn("IOException thrown");
+    }
+}
+```
