@@ -248,7 +248,7 @@ public void methodThatCalls() {
 The most basic form of exception handling is the try-catch:
 
 ```java
-public void methodThatThrows() throws IOException {
+public void methodThatThrows() {
     try {
         throw new IOException();
     } catch (IOException exception) {
@@ -263,7 +263,7 @@ A try block must be followed by at least one catch (or finally) block, but there
 Multiple exceptions can also be handled in one catch block:
 
 ```java
-public void methodThatThrows() throws IOException {
+public void methodThatThrows() {
     try {
         throw new IOException();
     } catch (IOException ex1 | ServletException ex2) {
