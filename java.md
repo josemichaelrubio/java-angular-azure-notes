@@ -273,6 +273,21 @@ public void methodThatThrows() throws IOException {
 }
 ```
 
+Multiple catch blocks:
+```java
+public void methodThatThrows(){
+    try {
+        // some io operations that may throw exceptions
+    } catch (FileNotFoundException ex2){
+        logger.warn("File was not found");
+    } catch (IOException ex1) {
+        logger.warn("Something went wrong with I/O operations");
+    } catch (ServletException ex3){
+        logger.warn("Issue with Servlet");
+    }
+}
+```
+
 ### Finally
 
 Try blocks can be followed by one finally block, and can either replace the mandatory single catch block or follow one or more catch blocks. They are always guaranteed to execute, even if no exceptions are thrown, and are useful for closing resources that may be left open in memory due to an interruption from a thrown exception.
