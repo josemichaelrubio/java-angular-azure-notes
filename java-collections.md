@@ -1,6 +1,6 @@
 # Java Collections Framework
 
-<img src="https://miro.medium.com/max/3840/1*cuSF6X4zzQ0IBq2MihZFng.jpeg" alt="collection framework hierarchy" />
+![collection framework hierarchy](./collections-hierarchy.jfif "collection framework hierarchy") />
 
 ### Collection
 
