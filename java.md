@@ -294,9 +294,13 @@ Try blocks can be followed by one finally block, and can either replace the mand
 
 ```java
 public void methodThatThrows() throws IOException {
+    FileReader fr = null;
     try {
-        throw new IOException();
+        fr = new FileReader(); // could throw an IO exception
     } finally {
+        if(fr!=null){
+            fr.close();
+        }
         System.out.println("Will always run");
     }
 }
@@ -307,11 +311,19 @@ public void methodThatThrows() throws IOException {
 Declaring and defining a resource - any object that implements AutoCloseable - within a pair of parenthesis after the try keyword removes the necessity of a finally block to close that resource.
 
 ```java
-public void methodThatThrows() throws IOException {
+public void methodThatThrows() {
     try (FileReader fr = new FileReader()) {
         // read from file
     } catch (IOException exception) {
         logger.warn("IOException thrown");
     }
+}
+```
+
+```java
+public void methodThatThrows() throws IOException {
+    try (FileReader fr = new FileReader()) {
+        // read from file
+    } 
 }
 ```
