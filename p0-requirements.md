@@ -4,7 +4,7 @@ You have recently been hired for a company that has tasked you with creating bac
 
 You must use the following technologies: **Java**, **Javalin**, **JDBC**, and **PostgreSQL** You can use whichever theme you would like for your project. The quality of your project is a reflection of your skills and abilities, so create something you can be proud of. 
 
-This project is tentatively due in the middle of Week 3.
+This project is tentatively due towards the end of Week 3.
 
 ## Project 0 Minimum Requirements
 - [ ] Create a RESTful API/Web Service using Java
