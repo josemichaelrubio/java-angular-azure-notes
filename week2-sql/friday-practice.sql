@@ -215,10 +215,73 @@ union
 select name 
 from department d;
 
+select name
+from market_item
+where department = 1
+union 
+select name
+from market_item
+where price > 150;
 
+select name
+from market_item
+where department = 1
+union all 
+select name
+from market_item
+where price > 150;
 
+select name
+from market_item
+where department = 1
+intersect 
+select name
+from market_item
+where price > 150;
 
+select name
+from market_item
+where department = 1
+except 
+select name
+from market_item
+where price > 150;
 
+select * 
+from market_item mi;
 
+-- creating a view 
+create view inventory as
+select mi.name "Item", d.name "Department"
+from market_item mi
+left outer join department d
+on mi.department = d.id
+order by d.name;
 
+select * from inventory;
 
+-- a normal view is just a saved query
+select * from (
+select mi.name "Item", d.name "Department"
+from market_item mi
+left outer join department d
+on mi.department = d.id
+order by d.name) as inventory_sub_query;
+
+-- a materialized view actually stores a copy of the data in memory
+create materialized view inventory_materialized_view as 
+select mi.name "Item", d.name "Department"
+from market_item mi
+left outer join department d
+on mi.department = d.id
+order by d.name;
+
+select * from inventory;
+select * from inventory_materialized_view;
+
+insert into market_item (name, price, department) values ('tent', 75, 3);
+
+refresh materialized view inventory_materialized_view;
+
+drop table market_item;
+drop table department;
