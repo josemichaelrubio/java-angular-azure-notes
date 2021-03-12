@@ -16,34 +16,35 @@
 - execution methods will execute them in the database
 - autocommit by default is true
 - creating a new statement
-  > Connection con = ConnectionUtil.getConnection();
 
-> Statement s = con.createStatement();
+> `Connection con = ConnectionUtil.getConnection();`
 
-> ResultSet rs = s.executeQuery("SELECT \* FROM BAKERY_ITEM");
+> `Statement s = con.createStatement();`
+
+> `ResultSet rs = s.executeQuery("SELECT \* FROM BAKERY_ITEM");`
 
 ## PreparedStatement
 
 - subinterface of statement, but it is compiled separately from the parameters to prevent sql injection
 
-> con.prepareStatement("SELECT \* FROM BAKERY_ITEM WHERE ITEM_TYPE = ?")
+> `con.prepareStatement("SELECT \* FROM BAKERY_ITEM WHERE ITEM_TYPE = ?")`
 
-> statement.set[ type ]( [1 based index ],[ value ])
+> `statement.set[ type ]( [1 based index ],[ value ])`
 
-> statement.setString(1,itemTypeInput);
+> `statement.setString(1,itemTypeInput)`
 
 ## CallableStatement
 
 - subinterface of prepared statement
 - used in order to execute stored procedures
 
-> Connection con = ConnectionUtil.getHardCodedConnection();
+> `Connection con = ConnectionUtil.getHardCodedConnection();`
 
-> CallableStatement cs = con.prepareCall("{call PROCEDURE_NAME(?,?,...)}"));
+> `CallableStatement cs = con.prepareCall("{call PROCEDURE_NAME(?,?,...)}"));`
 
-> cs.set[type]([index], [value]);
+> `cs.set[type]([index], [value]);`
 
-> cs.execute();
+> `cs.execute();`
 
 ## ResultSet
 
@@ -52,11 +53,11 @@
 - initially the cursor is positioned before the first row
 - next method moves the cursor to the next row, returns false when there are no more rows in the ResultSet object
 
-> statement.executeQuery()
+> `statement.executeQuery()`
 
-> rs.next();
+> `rs.next();`
 
-> rs.get[type]([column index]/[column name])
+> `rs.get[type]([column index]/[column name])`
 
 # DAO Design Pattern
 
