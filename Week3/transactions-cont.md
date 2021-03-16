@@ -12,9 +12,9 @@
 | Isolation Levels      | Dirty Read | Non Repeatable Read | Phantom Read | 
 | ----------- | ----------- | ----------- | ----------- |
 |    Read Uncommitted   | Possible       | Possible      | Possible       |
-|    Read Committed   | Not Possible        |  Possible  | Possible |
+|    Read Committed*   | Not Possible        |  Possible  | Possible |
 |    Repeatable Read   | Not Possible        |  Not Possible | Possible |
-|    Serializable   | Not Possible        |  Not Possible | Not Possible |
+|    Serializable*   | Not Possible        |  Not Possible | Not Possible |
 
 
 Dirty Read:
@@ -30,7 +30,7 @@ Phantom Read:
 - another transaction adds or removes records relevant to the first transaction 
 - a subsequent requests shows a different amount of records in the query
 
-* supported in postgres
+*supported in postgres
 
 [More on Transaction Isolation](https://www.postgresql.org/docs/11/transaction-iso.html)
 
