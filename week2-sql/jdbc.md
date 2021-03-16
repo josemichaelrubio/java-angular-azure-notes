@@ -21,13 +21,13 @@
 
 > `Statement s = con.createStatement();`
 
-> `ResultSet rs = s.executeQuery("SELECT \* FROM BAKERY_ITEM");`
+> `ResultSet rs = s.executeQuery("SELECT * FROM BAKERY_ITEM");`
 
 ## PreparedStatement
 
 - subinterface of statement, but it is compiled separately from the parameters to prevent sql injection
 
-> `con.prepareStatement("SELECT \* FROM BAKERY_ITEM WHERE ITEM_TYPE = ?")`
+> `con.prepareStatement("SELECT * FROM BAKERY_ITEM WHERE ITEM_TYPE = ?")`
 
 > `statement.set[ type ]( [1 based index ],[ value ])`
 
