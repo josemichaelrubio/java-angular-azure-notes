@@ -13,8 +13,8 @@
 | ----------- | ----------- | ----------- | ----------- |
 |    Read Uncommitted   | Possible       | Possible      | Possible       |
 |    Read Committed   | Not Possible        |  Possible  | Possible |
-|    Read Committed   | Not Possible        |  Not Possible | Possible |
-|    Read Committed   | Not Possible        |  Not Possible | Not Possible |
+|    Repeatable Read   | Not Possible        |  Not Possible | Possible |
+|    Serializable   | Not Possible        |  Not Possible | Not Possible |
 
 
 Dirty Read:
