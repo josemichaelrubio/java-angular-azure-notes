@@ -122,9 +122,9 @@ id
 #### Pseudo class selectors
 
 - used to define a special state of an element
-- [element]: active
-- [element]: checked
-- [element]: visited
+- `[element]: active`
+- `[element]: checked`
+- `[element]: visited`
 
 ### Properties and Rules
 
