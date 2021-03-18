@@ -8,6 +8,7 @@ This project is tentatively due towards the end of Week 3.
 
 ## Project 0 Minimum Requirements
 - [ ] Create a RESTful API/Web Service using Java
+- [ ] implement full CRUD operations for at least one endpoint
 - [ ] Documentation
     - Ask yourself if another person can understand how your app works without you having to explain it to them
 - [ ] Unit Testing
@@ -21,5 +22,5 @@ This project is tentatively due towards the end of Week 3.
 ## Recommended Stretch Goals
 - More than one type of role that you can log in as (i.e. some sort of user and an admin roles)
 - Password Hashing.
-- Use JSON Web Tokens instead of session storage
+- Use JSON Web Tokens for handling state in your application
 - (Paging and sorting endpoints)[https://docs.microsoft.com/en-us/azure/architecture/best-practices/api-design#filter-and-paginate-data]
