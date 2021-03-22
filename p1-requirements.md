@@ -19,6 +19,6 @@ Project presentations will take the place of one on ones on Monday April 5.
 
 ## Recommended Stretch Goals
 
-- hit one endpoint from an external API (that neither of you wrote)
+- hit one endpoint from an external API
 - make your app aesthetically pleasing
 - assess your application for code quality (Sonar)
