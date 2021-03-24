@@ -17,7 +17,7 @@ In order to configure Hibernate one needs:
 1. Hibernate Configuration (hibernate.cfg.xml file)
 2. Hibernate Mapping (hbm.xml files or annotations)
 
-(we also need to configure our pom.xml - hibernate, yes, but still with jdbc as it leverages jdbc)
+(we also need to configure our build.gradle - hibernate, yes, but still with jdbc as it leverages jdbc)
 
 The goal of this configuration is to create a properly configured Session Factory, which we can obtain a Session  from and with which we can perform operations on our database.
 
