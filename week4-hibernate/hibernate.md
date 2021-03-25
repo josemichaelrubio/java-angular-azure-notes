@@ -209,7 +209,7 @@ public class Bear implements Serializable {
 ## Hibernate Persistent States
 
 ### Transient
-- object exists on the java side but there isn't a representation in the database that's being managed by a session
+- object exists on the java side but there isn't a representation in the database
 
 ### Persistent
 - there is an object managed by a session
@@ -223,6 +223,94 @@ Example:
     Session s = HibernateUtil.getSession(); // create a session; HibernateUtil is pre-implemented
     Bear b = new Bear(); // b is in the transient state
     s.save(b); // b now becomes persistent 
-    s.close(); // the session is now closed and b enters the detached state
+        s.close(); // the session is now closed and b enters the detached state
 
 ```
+
+
+## Session Methods
+#### get 
+- retrieves a single object from the database
+- eagerly fetches data, querying the database when it's called 
+- If an object is attempted to be retrieved with an id not in the database, get will return null
+
+#### load
+- Retrieves a proxy object representing a single object from the database
+- A proxy is an anonymous subclass which contains the same id as the requested resource. Keep in mind that we can refer to any subclass as it's superclass so it may not seem like the proxy is any different. (```Bear b = s.load(3, Bear.class)``` represents ```Bear obj = new [Bear Proxy]```. We know this is valid because ```SuperClass obj = new Subclass()``` is valid.)
+- the proxy acts as a placeholder for your value. Once you make a request for any information other than the id, at that time Hibernate will load in the data to your proxy object and it can function like a normal object.
+- If you don't access any data before the session is closed, you may not access the object as it never becomes more than just the proxy object. A LazyInitializationException is thrown if one attempts to access a proxy after the session is closed.
+- The load method will also throw an exception if a record is requested with an id not present in the database.
+
+#### Query Interface 
+- Using the Query interface we can query for a set of data rather than just one object.
+- There are several methods we can use that will create implementations of the Query interface.
+1. .createQuery(String)
+    - the string in this case takes in something called HQL
+    > HQL is Hibernate Query Language. It is an object oriented version of SQL. It allows you to write in a syntax similar to SQL but using class and field names rather than table and column names.
+    > Ex. you change a column name or modify your table - with JDBC we need to update every reference to that table or those columns; with HQL, we don't have to change our code at all, we just need to modify our mappings once and every HQL query would be properly configured.
+    > SQL "select * from employee" -> HQL "from Employee" 
+    >[(more on HQL here)](https://docs.jboss.org/hibernate/core/3.3/reference/en-US/html/queryhql.html)
+2. .getNamedQuery(String)
+    - if you intend to use an HQL statement again and again, you can save this HQL as a named query (this is similar to our previous idea of a view in SQL but on the java side)
+    - the string parameter here represents the name we assign to identify the query
+    - named queries can be declared with a @NamedQueries annotation or with a `<query>` tag in an hbm file
+
+    ``` xml
+    <query name="getBearsByName">
+        <![CDATA[from Bear where name = :nameVar]]>
+    </query>
+    ```
+
+    ```java
+    @NamedQueries({ @NamedQuery(name="getBearByName", query="from Bear where name = :nameVar")})
+    ```
+3. .createQuery(CriteriaQuery)
+    - While HQL aims to make our SQL queries more programmatic, CriteriaQuery takes this even further. CriteriaQuery uses the [builder pattern](https://www.geeksforgeeks.org/builder-design-pattern/) to programmatically construct a typ safe query.
+    - The goal of CriteriaQuery is to remove the possible mistakes from malformed SQL strings, as there is no type safety or compile time error checking associated with them. 
+4. .createNativeQuery(String)
+    - the string parameter here is represented by plain sql like we're used to
+    - it is not preferred as it is dialect specific - it also doesn't allow us to take advantage of the object mapping
+
+#### persist
+- attempts to make a transient object persistent 
+- void return type 
+- doesn't assure primary key until flush time - when db records synchronize with the state of our java objects (this occurs before some query executions and when a transaction is committed)
+- throws an exception if the method is called on a detached object (object already in the db but not attached to the session)
+
+#### save
+- attempts to make a transient or detached object persistent
+- returns id, assures immediate access of PK if it's generated
+
+#### update
+- attempts to make a detached object persistent
+- void return type
+- will throw a NonUniqueObjectException if there is already a persistent object in the current session with the same identifier
+- throws an exception if an object is provided with an identifier that isn't in the database
+
+#### merge
+- if there is already a persistent object in the current context, the object provided will be merged with that persistent object
+- returns that merged object
+
+#### saveOrUpdate
+- saves the object if the identifier isn't in the database, performs an update if the identifier is
+
+## Transactions
+- We can also create transactions in Hibernate using our Session object
+- It is good practice to wrap our db operations in explicit transactions
+
+```java
+    Transaction tx = s.beginTransaction();
+    // perform operation(s) on our db
+	tx.commit();
+```
+
+
+
+## Caching
+### First Leveling Caching
+- default caching level
+- session scoped
+- data for an operation is cached locally, if the same operation is made within the same session without the session being flushed () then the request will not be made again but rather the cached data will be returned instead
+## Second Level Caching
+- cannot be set unless a third party caching library (e.g. ehcache) is configured 
+- session factory scoped
