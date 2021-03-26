@@ -12,7 +12,7 @@
 ## Virtual Machines
 - on demand, scalable computing resource
 - allows you to allocate virtual processing units and storage to run processes on without needing to maintain any physical hardware
-- virtual machines follow the infrastructure as a service model (or IaaS), meaning the physical hardware and virtualization is handled by the cloud service provider, but the software that runs on it must still be maintained
+- virtual machines follow the infrastructure as a service model (or IaaS - more on [cloud computing models](https://www.redhat.com/en/topics/cloud-computing/iaas-vs-paas-vs-saas)), meaning the physical hardware and virtualization is handled by the cloud service provider, but the software that runs on it must still be maintained
 - Virtual machines can be created with Windows OS or with one of many linux distributions, as well as with your own linux distribution
 - VMs can be used in your development process, to test your application, and to deploy your applications to the cloud 
 - VMs are customizable by size can easily be scaled - resizing, adding more disk storage (vertical scaling) or using scale sets (horizontal scaling)
