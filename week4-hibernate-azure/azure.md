@@ -43,10 +43,10 @@
 - nearly infinite scalability
 - good for storing large amounts of any unstructured data, but can also be used to host static web pages
 
-<!-- 
+
 # DevOps 
 
 ## [Continuous Integration, Continuous Delivery, Continuous Deployment](https://www.atlassian.com/continuous-delivery/principles/continuous-integration-vs-delivery-vs-deployment)
 
 ![dev ops concepts](./ci-vs-cd-devops-difference.jpg)
-(image source: https://www.bmc.com/blogs/continuous-delivery-continuous-deployment-continuous-integration-whats-difference/) -->
+(image source: https://www.bmc.com/blogs/continuous-delivery-continuous-deployment-continuous-integration-whats-difference/) 
