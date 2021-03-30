@@ -23,7 +23,7 @@
 - cp - copies first argument to second argument location
 - mv - also has two arguments, moves a file
 - echo - allows us to print to standard output, often used in scripts
-- nano/vi
+- nano/[vim](https://opensource.com/article/19/3/getting-started-vim) - terminal text editors 
 - sudo - allows you to run commands as a super user
 - chmod - change mode
 
