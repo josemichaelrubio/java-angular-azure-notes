@@ -36,7 +36,7 @@ Drawbacks:
 
 - agile is a dynamic and iterative process which focuses on adaptability to efficiently produce software products
 
-![waterfall vs agile from ouriken](https://ouriken.com/blog/wp-content/uploads/2019/11/Untitled-design-2.png)
+![waterfall vs agile from ouriken](https://www.digite.com/wp-content/uploads/2019/04/Waterfall-vs-Agile-1.jpg)
 
 > Several implementations of Agile, e.g. Scrum, Kanban
 
