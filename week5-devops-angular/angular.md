@@ -9,6 +9,7 @@
   - npm registry
 
 # Angular
+- (get set up with angular)[https://angular.io/guide/setup-local]
 ### Pros of Angular
 - Single Page Application (Front load)
 - Organziation/Modularization
@@ -60,7 +61,7 @@ Path:
 - bundles into several "chunks" which are then injected into index.html 
 
 # Decorator 
-- a function that takes a single metatdata object
+- a function that takes a single metadata object
 ```typescript
 @NgModule({
   declarations: [
@@ -78,8 +79,7 @@ Path:
 ```typescript
 @Component({
     selector: 'app-first',
-    //template: '<p> my first component!!!!!! </p>',
-    templateUrl: './first.component.html',
+    template: '<p>Hello World</p>',
     //styles: []
     styleUrls: ['./first.component.css']
 })
@@ -93,12 +93,9 @@ Path:
 
 ```typescript
 @Pipe({
-    name: 'firstCap'
+    name: 'FirstCap'
 })
 ```
-- implements PipeTransform
-- takes in a string and returns a string
-
 # Components
 1. class
 2. template
@@ -177,11 +174,10 @@ export class ADirectivesComponent {
 - ngStyle, ngClass
 
 
-
 # Pipes
 ``` TypeScript
 @Pipe({
-  name: 'pipeName'
+  name: 'PipeName'
 })
 export class PipeNamePipe implements PipeTransform{
 
@@ -194,7 +190,10 @@ export class PipeNamePipe implements PipeTransform{
     }
 }
 
-````
+```
+
+- implements PipeTransform
+- takes in a string and returns a string
 
 
 # Services

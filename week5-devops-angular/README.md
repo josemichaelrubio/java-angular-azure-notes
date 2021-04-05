@@ -1,0 +1,31 @@
+Week 5 Topic List
+- common linux commands
+- vim basics
+- package managers, apt-get, npm
+- devops
+- jenkins
+- setting up a devops pipeline
+- IaaS
+- continuous integration, continuous delivery, continuous deployment
+- security groups
+- vertical and horizontal scaling
+- ssh
+- azure devops 
+- gradle build scripts and tasks
+- sonarcloud/sonarqube
+- agile
+- waterfall 
+- scrum 
+- scrum meetings
+- story points, burndown charts
+- Angular 
+- SPA
+- typescript
+- components
+- modules
+- decorators
+- typescript classes and interfaces
+- angular routing
+- databinding
+- directives
+- webpack
