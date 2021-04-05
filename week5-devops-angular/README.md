@@ -11,6 +11,11 @@ Week 5 Topic List
 - vertical and horizontal scaling
 - ssh
 - azure devops 
+- containerization
+- docker
+- dockerhub
+- docker images, containers
+- Dockerfile, role and keywords 
 - gradle build scripts and tasks
 - sonarcloud/sonarqube
 - agile
