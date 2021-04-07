@@ -18,13 +18,13 @@ If you do decide to follow any additional guidelines, do so because you all unde
 ### Git Flow
 
 - Each team will have its own repository for their backend java application.
-- Each repository will have a master branch which is deployed on an EC2 and a dev branch.
+- Each repository will have a master branch which is deployed on an VM and a dev branch.
 - Feature branches specific to user stories/tasks will be made off of dev.
 - Master and dev will be protected. Pull requests must be made for each merge and approved by a teammate.
 - Do not change more than 5-7 files in a pull request.
 
 - Each team will have a repository for their front end angular application.
-- Angular application should be hosted in an S3 bucket
+- Angular application should be hosted on blob storage
 
 
 ### Optional Requirements:
