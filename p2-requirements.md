@@ -2,7 +2,7 @@
 
 For your second project, you'll be in groups of 3 or 4. You will be creating a full stack application that uses the following technologies and methodologies at a minimum: **Azure DB**, **Java**, **Spring**, **Angular**, **HTML/CSS/JS**, **Jenkins**, **Azure VM**, and **Agile/Scrum Methodologies**. The quality of your project is a reflection of your skills and abilities, so create something you can be proud of. 
 
-During this project, follow the best practices for the following: _Daily Standup Meetings_, _Sprint Planning Meeting_, _Burndown Chart_, _Scrum Board_, _CI_, _CD_, and _Pull/Merge Requests_. Consider using services such as GitHub, GitLab, Jira, or Trello to manage your Scrum Board. The first thing that you should do is define your product backlog, prioritizing user stories and allocating an appropriate scope for the MVP. Define these user stories and 
+During this project, follow the best practices for the following: _Daily Standup Meetings_, _Sprint Planning Meeting_, _Burndown Chart_, _Scrum Board_, _CI_, _CD_, and _Pull/Merge Requests_. Consider using services such as GitHub, GitLab, Jira, or Trello to manage your Scrum Board. The first thing that you should do is define your product backlog, prioritizing user stories and allocating an appropriate scope for the MVP. Meet with your team and conduct a sprint planning meeting to get your backlog organized.
 
 # Minimum Requirements:
 
@@ -28,10 +28,10 @@ If you do decide to follow any additional guidelines, do so because you all unde
 
 
 ### Optional Requirements:
-Create a continuous deployment pipeline for angular front end
-Integrate SonarQube into backend pipeline, using Jenkins to automate the process
+- Create a continuous deployment pipeline for angular front end
+- Integrate SonarQube into backend pipeline
 
----- 
+---
 --- 
 
 ## Review Project Proposal
