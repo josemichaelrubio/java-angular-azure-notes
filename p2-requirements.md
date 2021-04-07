@@ -6,7 +6,7 @@ During this project, follow the best practices for the following: _Daily Standup
 
 # Minimum Requirements:
 
-- [ ] a RESTful API should expose CRUD operations, and be consumed by a react application to accomplish your business goals
+- [ ] a RESTful API should expose CRUD operations, and be consumed by an Angular application to accomplish your business goals
 - [ ] code should be well tested
 - [ ] code should be consistently written and adhere to good code quality
 - [ ] backend application should be deployed using continuous deployment
