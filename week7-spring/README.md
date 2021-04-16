@@ -1,4 +1,7 @@
 Week 7 Topic List:
+
+---
+
 - Spring Framework
 - Spring Modules
 - Spring Projects 
@@ -14,6 +17,8 @@ Week 7 Topic List:
     - types of dependency injection
     - bean wiring, different ways of bean wirings
 
+---
+
 - Spring MVC
 - flow of a request and response with spring MVC 
 - InternalViewResourceResolver, `@ResponseBody`
@@ -26,6 +31,7 @@ Week 7 Topic List:
 - `@ControllerAdvice`
 - `@CrossOrigin`
 
+---
 
 - Spring AOP
 - AspectJ annotations
@@ -36,12 +42,16 @@ Week 7 Topic List:
     - types of pointcut expressions
 - advice, types of advice
 
+---
+
 - Spring Boot
 - features of spring boot
 - spring boot dev tools 
 - spring boot actuator
 - RestTemplate/TestRestTemplate
 - parameterizing configuration with environment variables and profiles
+
+---
 
 - Spring Data JPA
 - Spring Data JPA annotations and interfaces
