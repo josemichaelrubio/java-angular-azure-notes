@@ -1,9 +1,7 @@
 # Kubernetes
-```
+
 Kubernetes is an open source container orchestration engine for automating deployment, scaling, and management of containerized applications. The open source project is hosted by the Cloud Native Computing Foundation (CNCF).
 
-- K8s Docs
-```
 - [Kubernetes Documentation](https://kubernetes.io/docs/home/)
 
 For this example we will simply take the Docker container that we have already have pushed to DockerHub and we will deploy it to a kubernetes cluster.
