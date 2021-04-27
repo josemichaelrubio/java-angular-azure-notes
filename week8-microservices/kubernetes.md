@@ -18,7 +18,7 @@ Key terms:
 
 ![Image of a simple cluster](https://www.researchgate.net/profile/Carlos-Aderaldo-2/publication/334440422/figure/fig10/AS:779998034153473@1562977431618/Figura-36-Relacao-entre-Pod-Deployment-e-Service-no-Kubernetes-extraido-de-9.ppm)
 
-![Another Cluster](https://tsuyoshiushio.medium.com/kubernetes-in-three-diagrams-6aba8432541c)
+![Another Cluster](https://miro.medium.com/max/700/1*LFMMBlUysm87TjdHlrlMTQ.jpeg)
 
 ## Quick Demo
 ### Set up cluster
