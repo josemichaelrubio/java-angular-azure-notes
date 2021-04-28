@@ -1,0 +1,84 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: market-service
+  name: market-service
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: market-service
+  template:
+    metadata:
+      labels:
+        app: market-service
+    spec:
+      containers:
+      - image: crehm/market-service
+        name: market-service
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: market-service-external
+  name: market-service-external
+spec:
+  ports:
+  - port: 8085
+    nodePort: 32000
+  selector:
+    app: market-service
+  type: NodePort
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: discovery-service
+  name: discovery-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: discovery-service
+  template:
+    metadata:
+      labels:
+        app: discovery-service
+    spec:
+      containers:
+      - image: consul
+        name: discovery-service
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: discovery-service-internal
+  name: discovery-service-internal
+spec:
+  ports:
+    - port: 8500
+  selector:
+    app: discovery-service
+  type: ClusterIP
+
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: discovery-service-external
+  name: discovery-service-external
+spec:
+  ports:
+  - port: 8500
+    nodePort: 31000
+  selector:
+    app: discovery-service
+  type: NodePort
